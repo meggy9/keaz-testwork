@@ -1,0 +1,316 @@
+@import 'fonts/fonts.scss';
+@import 'mixins/mixins.scss';
+
+$picture-tile-width: 13.75rem;
+
+html, body {
+	min-height: 100%;
+}
+
+//**********Main Page**********//
+
+.main-wrapper {
+	display: flex;
+	background: #1e2327;
+	padding: 15rem;
+}
+
+.left {
+	width: 40%;
+	padding-right: 30px;
+}
+
+.left__header {
+	margin: 0;
+	font-family: latolight;
+	color: #fff;
+	letter-spacing: 5px;
+	font-weight: lighter;
+}
+
+.description {
+	font-family: latoregular;
+	color: #98a3ab;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.slogan {
+	font-family: latoitalic;
+	color: #bf8d0b;
+	margin-bottom: 25px;
+}
+
+.divider {
+	width: 80px;
+	height: 1px;
+	background: #98a3ab;
+	margin-bottom: 25px;
+}
+
+.work-page__link {
+	display: inline-block;
+	border: 2px solid #737c85;
+	color: #737c85;
+	font-family: latoregular;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+.right {
+	width: 60%;
+}
+
+.item {
+	max-height: 322px;
+}
+
+.item__text {
+	background: #ffb800;
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	padding: 8px 14px;
+	color: #fff;
+	font-family: latoitalic;
+}
+
+
+//***************//
+
+.wrapper {
+	display: flex;
+	min-height: 1192px;
+}
+
+.left__block {
+	width: 40%;
+	padding-top: 9.8125rem;
+	background: #1e2327;
+
+	@include desktop {
+		width: 30%;
+	}
+}
+
+.trigger {
+	display: flex;
+	position: absolute;
+	top: 9.8125rem;
+	left: 2.125rem;
+	width: 40px;
+	height: 40px;
+	background: #00ffeb;
+	justify-content: center;
+	cursor: pointer;
+
+	span {
+		display: inline-block;
+		height: 0.9375rem;
+		width: 0.9375rem;
+		border: 2px solid black;
+		border-radius: 50%;
+		align-self: center;
+	}
+}
+
+.trigger.active {
+	background: #ffb800;
+
+	span {
+		border-color: white;
+	}
+}
+
+.slider {
+	display: none !important;
+	position: relative;
+	width: 13.4375rem;
+	margin: 0 auto;
+	padding: 3.8125rem 0rem;
+
+	&:before, &:after {
+		position: absolute;
+		display: block;
+		content: "";
+		width: 5rem;
+		height: 0.1625rem;
+		background: #35393d;
+	}
+
+	&:before {
+		top: 0;
+	}
+
+	&:after {
+		bottom: 0;
+	}
+}
+
+.slider.active {
+	display: block !important;
+}
+
+.slider__item_header {
+	font-family: latolight;
+	color: #fff;
+	margin-top: 3.0625rem;
+	margin-bottom: 3.0625rem;
+}
+
+.slider__item_text {
+	font-family: latoregular;
+	font-size: 0.725rem;
+	line-height: 27px;
+	color: #6d767f;
+	margin-bottom: 2.0625rem;
+}
+
+.owl-dots {
+	text-align: left !important;
+}
+
+.owl-dot > span {
+	display: inline-block !important;
+	background-color: transparent !important;
+	width: 7px !important;
+	height: 7px !important;
+	border: 2px solid #fff;
+	vertical-align: middle;
+}
+
+.owl-dot.active > span {
+	width: 5px;
+	height: 5px;
+	background: #fff !important;
+	border: none;
+}
+
+.images {
+	display: none;
+	grid-template-columns: $picture-tile-width $picture-tile-width $picture-tile-width $picture-tile-width;
+	grid-template-rows: auto;
+	grid-gap: 1px;
+	grid-template-areas: "one two three four"
+						 "five six three seven"
+						 "five eight eight nine"
+						 ". eight eight .";
+	margin-left: calc(-#{$picture-tile-width} - 1px);
+	margin-bottom: 1.5625rem;
+
+	@include wide-desktop {
+		margin-left: calc(-#{$picture-tile-width}/2 - 1px);
+	}
+
+	@include desktop {
+		margin-left: 0;
+	}
+}
+
+.images.active {
+	display: grid;
+}
+
+.images__item {
+	width: $picture-tile-width;
+	height: $picture-tile-width;
+	overflow: hidden;
+}
+
+.item-one {
+	grid-area: one;
+}
+
+.item-two {
+	grid-area: two;
+}
+
+.item-three {
+	grid-area: three;
+}
+
+.item-four {
+	grid-area: four;
+}
+
+.item-five {
+	grid-area: five;
+}
+
+.item-six {
+	grid-area: six;
+}
+
+.item-seven {
+	grid-area: seven;
+}
+
+.item-eight {
+	grid-area: eight;
+}
+
+.item-nine {
+	grid-area: nine;
+}
+
+.tile-height-2 {
+	height: $picture-tile-width*2;
+}
+.tile-width-2 {
+	width: $picture-tile-width*2;
+}
+
+.right__block {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 60%;
+	padding: 9.8125rem 0;
+	background: #03e9d8;
+
+	@include desktop {
+		width: 70%;
+	}
+}
+
+.right__block_slogan {
+	color: white;
+	font-family: latoitalic;
+	padding: 0 2.625rem;
+}
+
+.right__block.about {
+	background: #e9a904;
+}
+
+      
+
+      //*********About Page***********//
+
+#owl-image {
+	display: none;
+}
+
+.about__block {
+	display: none;
+	padding: 0 2.625rem;
+	max-width: 36.875rem;
+}
+
+.about__block.active {
+	display: block;
+}
+
+.about__header {
+	font-family: latolight;
+	margin: 0;
+	margin-bottom: 3.125rem;
+}
+
+.about__description {
+	font-family: latoregular;
+	line-height: 27px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 2.1875rem;
+}
